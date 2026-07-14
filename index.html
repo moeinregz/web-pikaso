@@ -1,23 +1,122 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fa" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Moein Fayegh</title>
+    <title>معین فایق</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800;900&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 	<style>
 				:root{
   --bg:#020205;
   --purple1:#910aff;
   --purple2:#b93fff;
   --purple3:#be6eff;
+  --purple-deep:#5b0a91;
+  --text-main:#f5f7ff;
+  --text-soft:#dbe9ff;
 }
+
+
+
+
+/* Floating theme/lang tools — sits outside the nav pill */
+.floating-tools{
+  position:fixed;
+  top:24px;
+  right:24px;
+  z-index:1000;
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+@media(max-width:768px){ .floating-tools{ top:16px; right:16px; gap:8px; } }
+@media(max-width:500px){ .floating-tools{ top:12px; right:12px; } }
+.tool-btn{
+  display:flex; align-items:center; justify-content:center;
+  width:42px; height:42px;
+  border-radius:50%;
+  border:1px solid rgba(255,255,255,.18);
+  background:rgba(255,255,255,.07);
+  backdrop-filter:blur(14px);
+  -webkit-backdrop-filter:blur(14px);
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,.08), 0 8px 20px rgba(0,0,0,.35);
+  color:#f5f7ff;
+  cursor:pointer;
+  transition:.25s;
+}
+.tool-btn:hover{ background:rgba(255,255,255,.16); transform:translateY(-2px); }
+.tool-btn svg{ width:19px; height:19px; }
+.lang-btn{ border-radius:20px; width:auto; padding:0 16px; font-size:.8rem; font-weight:800; letter-spacing:.02em; }
+
+/* Skill pills */
+.skills-row{ display:flex; flex-wrap:wrap; gap:10px; margin:10px 0 30px; }
+.skill-pill{
+  padding:8px 16px;
+  border-radius:999px;
+  font-size:.85rem;
+  font-weight:700;
+  color:#f5f7ff;
+  background:rgba(255,255,255,.08);
+  border:1px solid rgba(255,255,255,.18);
+  transition:.25s;
+}
+.skill-pill:hover{ transform:translateY(-3px); border-color:var(--purple2); box-shadow:0 6px 18px rgba(157,10,255,.25); }
+
+/* ===== Skills Section (grid of cards) ===== */
+.skills-section{
+  position:relative;
+  background:#03040a;
+  padding:100px 20px 110px;
+  overflow:hidden;
+  text-align:center;
+}
+.skills-grid{
+  position:relative;
+  z-index:1;
+  max-width:1300px;
+  margin:0 auto;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:22px;
+}
+.skill-card{
+  background:rgba(255,255,255,.05);
+  border:1px solid rgba(255,255,255,.1);
+  border-radius:18px;
+  padding:26px 22px;
+  text-align:right;
+  backdrop-filter:blur(10px);
+  transition:.3s;
+}
+.skill-card:hover{
+  transform:translateY(-6px);
+  border-color:var(--purple2);
+  box-shadow:0 14px 34px rgba(157,10,255,.25);
+}
+.skill-card h4{
+  margin:0 0 10px;
+  font-size:1.15rem;
+  background:linear-gradient(90deg,var(--purple-deep),var(--purple3));
+  -webkit-background-clip:text;
+  color:transparent;
+}
+.skill-card p{
+  margin:0;
+  font-size:.92rem;
+  line-height:1.8;
+  color:var(--text-soft);
+}
+@media(max-width:600px){ .skills-section{ padding:70px 16px 80px; } }
 @font-face {
     font-family: "Vazir";
     src: url("./Vazir.woff2") format("woff2");
 }
 
 body {
-	font-family: "Vazir"!important;
+	font-family: "Vazirmatn", "Vazir", "Poppins", sans-serif !important;
+	font-weight: 700;
 	background-color:var(--bg-dark)!important;
 }
 
@@ -198,8 +297,9 @@ body {
   border-radius:20px;
   background-image:conic-gradient(
     from var(--angle,0deg),
-    transparent 60%,
-    var(--blue-main)
+    transparent 55%,
+    var(--purple3),
+    var(--purple1)
   );
   z-index:-1;
   filter:blur(1.8rem);
@@ -210,7 +310,7 @@ body {
 /* H2 Title Glow */
 .card1 h2{
   font-size:clamp(1.8rem,3vw,3rem);
-  background:linear-gradient(90deg,var(--blue-main),var(--blue-dark));
+  background:linear-gradient(90deg,var(--purple-deep),var(--purple3));
   -webkit-background-clip:text;
   color:transparent;
   text-shadow:0 0 2rem rgba(157, 10, 255, 0.4);
@@ -443,7 +543,7 @@ body {
   display:inline-block;
   margin-top:15px;
   padding:10px 22px;
-  background:linear-gradient(90deg, var(--purple1), var(--purple3));
+  background:linear-gradient(90deg, var(--purple-deep), var(--purple3));
   color:#fff;
   border-radius:12px;
   text-decoration:none;
@@ -543,16 +643,17 @@ html {
 body {
     margin: 0;
     padding: 0;
-    font-family: 'IRANYekanBlack', sans-serif;
-    font-weight: 900;
-    background-color: #000;
+    font-family: 'Vazirmatn', 'IRANYekanBlack', sans-serif;
+    font-weight: 800;
+    background-color: var(--bg-dark);
     overflow-x: hidden; /* فقط افقی مخفی */
     overflow-y: auto; /* اسکرول عمودی فعال */
     direction: rtl;
     scroll-behavior: smooth;
     width: 100%;
     height: 100%;
-    background: #000000;
+    background: var(--bg-dark);
+    transition: background-color .4s ease, color .4s ease;
 }
 
 
@@ -903,17 +1004,25 @@ body {
 
 <ul class="nav-links">
 
-    <li><a href="#contact">Contact</a></li>
-    <li><a href="#projects">Portfolio</a></li>
-    <li><a href="#about">About</a></li>
-    <li><a href="#hero">Home</a></li>
-
-
+    <li><a href="#contact" data-fa="تماس با من" data-en="Contact">تماس با من</a></li>
+    <li><a href="#projects" data-fa="نمونه کار" data-en="Portfolio">نمونه کار</a></li>
+    <li><a href="#skills" data-fa="مهارت‌ها" data-en="Skills">مهارت‌ها</a></li>
+    <li><a href="#about" data-fa="درباره من" data-en="About">درباره من</a></li>
+    <li><a href="#hero" data-fa="خانه" data-en="Home">خانه</a></li>
 
 </ul>
-<div class="nav-logo">Moein Fayegh</div>
+
+<div class="nav-logo" data-fa="معین فایق" data-en="Moein Fayegh">معین فایق</div>
 
 </nav>
+
+<div class="floating-tools">
+  <button class="tool-btn lang-btn" id="langToggle" type="button" aria-label="تغییر زبان" title="فارسی / English">
+    <span id="langLabel">EN</span>
+  </button>
+</div>
+
+
 
 
     <section class="hero" id="hero">
@@ -921,8 +1030,8 @@ body {
     <div class="tablet">
       <div class="screen">
         <div class="particle-layer"></div>
-        <h1 class="brand-title">Moein Fayegh</h1>
-        <p class="brand-sub">Hey It's <u>Moein Fayegh</u> a Senior Front-End Web Developer</p>
+        <h1 class="brand-title" data-fa="معین فایق" data-en="Moein Fayegh">معین فایق</h1>
+        <p class="brand-sub" data-html="true" data-fa='سلام، من <u>معین فایق</u> هستم، توسعه‌دهنده ارشد فول‌استک' data-en='Hey, I&#39;m <u>Moein Fayegh</u>, a Senior Full-Stack Developer'>سلام، من <u>معین فایق</u> هستم، توسعه‌دهنده ارشد فول‌استک</p>
       </div>
     </div>
   </div>
@@ -935,24 +1044,121 @@ body {
 
   <div class="content">
     <div class="card1">
-      <h2>Front-End Developer</h2>
+      <h2 data-fa="توسعه‌دهنده فول‌استک" data-en="Full-Stack Developer">توسعه‌دهنده فول‌استک</h2>
 
       <div class="chat">
         <!-- This section can be used as a summary of skills or experience -->
-        <div class="message from-us">Specialized in designing and implementing innovative solutions</div>
-        <div class="message from-user">Extensive experience in modern web development</div>
-        <div class="message from-us">Committed to delivering high-quality results</div>
+        <div class="message from-us" data-fa="متخصص در طراحی و پیاده‌سازی راه‌حل‌های نوآورانه، از فرانت‌اند تا بک‌اند" data-en="Specialized in designing and implementing innovative solutions, from front-end to back-end">متخصص در طراحی و پیاده‌سازی راه‌حل‌های نوآورانه، از فرانت‌اند تا بک‌اند</div>
+        <div class="message from-user" data-fa="تجربه گسترده در توسعه وب مدرن با React، Next.js و Node.js" data-en="Extensive experience in modern web development with React, Next.js and Node.js">تجربه گسترده در توسعه وب مدرن با React، Next.js و Node.js</div>
+        <div class="message from-us" data-fa="متعهد به ارائه نتایج باکیفیت و کدی تمیز و مقیاس‌پذیر" data-en="Committed to delivering high-quality results with clean, scalable code">متعهد به ارائه نتایج باکیفیت و کدی تمیز و مقیاس‌پذیر</div>
       </div>
     </div>
 
     <div class="text">
-      <h3 style="direction: ltr;">Professional Summary</h3>
-      <p style="direction: ltr;">
-        A creative and results-oriented professional with a proven track record in website design and development. Proficient in HTML, CSS, and JavaScript, as well as WordPress and all its themes along with Elementor, for creating outstanding user experiences and solving complex challenges.
+      <h3 data-fa="رزومه حرفه‌ای" data-en="Professional Summary">رزومه حرفه‌ای</h3>
+      <p data-fa="یک متخصص خلاق و نتیجه‌محور با سابقه‌ای اثبات‌شده در طراحی و توسعه وب‌سایت به‌صورت فول‌استک. به‌صورت حرفه‌ای با React، Next.js، Node.js، TypeScript، Tailwind CSS، Axios و MongoDB کار می‌کنم و علاوه بر ساخت رابط‌های کاربری مدرن، توانایی طراحی و پیاده‌سازی سمت سرور، اتصال به دیتابیس و ساخت API هم دارم. همچنین مسلط به HTML، CSS، جاوااسکریپت، وردپرس و المنتور برای خلق تجربه کاربری بی‌نظیر و حل چالش‌های پیچیده." data-en="A creative and results-oriented professional with a proven track record in full-stack website design and development. I work professionally with React, Next.js, Node.js, TypeScript, Tailwind CSS, Axios and MongoDB, and beyond building modern user interfaces, I'm equally capable of designing and implementing the server side, connecting databases, and building APIs. I'm also proficient in HTML, CSS, JavaScript, WordPress and Elementor for creating outstanding user experiences and solving complex challenges.">
+        یک متخصص خلاق و نتیجه‌محور با سابقه‌ای اثبات‌شده در طراحی و توسعه وب‌سایت به‌صورت فول‌استک. به‌صورت حرفه‌ای با React، Next.js، Node.js، TypeScript، Tailwind CSS، Axios و MongoDB کار می‌کنم و علاوه بر ساخت رابط‌های کاربری مدرن، توانایی طراحی و پیاده‌سازی سمت سرور، اتصال به دیتابیس و ساخت API هم دارم. همچنین مسلط به HTML، CSS، جاوااسکریپت، وردپرس و المنتور برای خلق تجربه کاربری بی‌نظیر و حل چالش‌های پیچیده.
       </p>
-      <a href="#portfolio" class="btn" style="direction: ltr;">Portfolio</a> <!-- Link to portfolio or projects section -->
+
+      <div class="skills-row">
+        <span class="skill-pill">React</span>
+        <span class="skill-pill">Next.js</span>
+        <span class="skill-pill">Node.js</span>
+        <span class="skill-pill">TypeScript</span>
+        <span class="skill-pill">Tailwind CSS</span>
+        <span class="skill-pill">MongoDB</span>
+        <span class="skill-pill">WordPress</span>
+        <span class="skill-pill">SEO</span>
+      </div>
+
+      <a href="#projects" class="btn" data-fa="نمونه کار" data-en="Portfolio">نمونه کار</a>
 
     </div>
+  </div>
+</section>
+
+<section class="skills-section" id="skills">
+  <div class="glow-bg2"></div>
+  <h1 class="p-title" data-fa="مهارت‌ها و تخصص‌ها" data-en="Skills & Expertise">مهارت‌ها و تخصص‌ها</h1>
+  <p class="p-sub" data-fa="ابزارها و تخصص‌هایی که برای ساخت و رشد سایت شما استفاده می‌کنم" data-en="The tools and expertise I use to build and grow your website">ابزارها و تخصص‌هایی که برای ساخت و رشد سایت شما استفاده می‌کنم</p>
+
+  <div class="skills-grid">
+
+    <div class="skill-card">
+      <h4>React</h4>
+      <p data-fa="ساخت رابط‌های کاربری پویا، سریع و کاملاً کامپوننت‌محور برای تجربه کاربری روان" data-en="Building dynamic, fast and fully component-based user interfaces for a smooth experience">ساخت رابط‌های کاربری پویا، سریع و کاملاً کامپوننت‌محور برای تجربه کاربری روان</p>
+    </div>
+
+    <div class="skill-card">
+      <h4>Next.js</h4>
+      <p data-fa="توسعه اپلیکیشن‌های فول‌استک با رندر سمت سرور (SSR) برای سرعت و سئوی بهتر" data-en="Developing full-stack apps with server-side rendering for better speed and SEO">توسعه اپلیکیشن‌های فول‌استک با رندر سمت سرور (SSR) برای سرعت و سئوی بهتر</p>
+    </div>
+
+    <div class="skill-card">
+      <h4>Node.js</h4>
+      <p data-fa="ساخت سرویس‌ها و API های سمت سرور امن، سریع و مقیاس‌پذیر" data-en="Building secure, fast and scalable back-end services and APIs">ساخت سرویس‌ها و API های سمت سرور امن، سریع و مقیاس‌پذیر</p>
+    </div>
+
+    <div class="skill-card">
+      <h4>TypeScript</h4>
+      <p data-fa="کدنویسی امن‌تر و بدون خطا با تایپ استاتیک برای پروژه‌های بزرگ و قابل نگهداری" data-en="Safer, error-resistant coding with static typing for large, maintainable projects">کدنویسی امن‌تر و بدون خطا با تایپ استاتیک برای پروژه‌های بزرگ و قابل نگهداری</p>
+    </div>
+
+    <div class="skill-card">
+      <h4>Tailwind CSS</h4>
+      <p data-fa="طراحی رابط کاربری سریع، یکپارچه و کاملاً واکنش‌گرا با کلاس‌های اتمیک" data-en="Fast, consistent and fully responsive UI design using utility-first classes">طراحی رابط کاربری سریع، یکپارچه و کاملاً واکنش‌گرا با کلاس‌های اتمیک</p>
+    </div>
+
+    <div class="skill-card">
+      <h4>Axios</h4>
+      <p data-fa="مدیریت حرفه‌ای درخواست‌های HTTP و ارتباط پایدار بین فرانت‌اند و سرور" data-en="Professional management of HTTP requests and reliable front-end/back-end communication">مدیریت حرفه‌ای درخواست‌های HTTP و ارتباط پایدار بین فرانت‌اند و سرور</p>
+    </div>
+
+    <div class="skill-card">
+      <h4>MongoDB</h4>
+      <p data-fa="طراحی و مدیریت پایگاه داده‌های NoSQL برای ذخیره‌سازی انعطاف‌پذیر و مقیاس‌پذیر داده‌ها" data-en="Designing and managing NoSQL databases for flexible, scalable data storage">طراحی و مدیریت پایگاه داده‌های NoSQL برای ذخیره‌سازی انعطاف‌پذیر و مقیاس‌پذیر داده‌ها</p>
+    </div>
+
+    <div class="skill-card">
+      <h4>WordPress</h4>
+      <p data-fa="ساخت، شخصی‌سازی و مدیریت کامل سایت‌های وردپرسی حرفه‌ای و سریع" data-en="Building, customizing and fully managing professional, fast WordPress websites">ساخت، شخصی‌سازی و مدیریت کامل سایت‌های وردپرسی حرفه‌ای و سریع</p>
+    </div>
+
+    <div class="skill-card">
+      <h4>Elementor</h4>
+      <p data-fa="طراحی صفحات حرفه‌ای بدون نیاز به کدنویسی با ابزار درگ اند دراپ المنتور" data-en="Designing professional pages without coding using Elementor's drag-and-drop builder">طراحی صفحات حرفه‌ای بدون نیاز به کدنویسی با ابزار درگ اند دراپ المنتور</p>
+    </div>
+
+    <div class="skill-card">
+      <h4>WooCommerce</h4>
+      <p data-fa="راه‌اندازی و توسعه فروشگاه‌های آنلاین وردپرسی از صفر تا اتصال درگاه پرداخت" data-en="Setting up and developing WordPress online stores from scratch to payment gateway integration">راه‌اندازی و توسعه فروشگاه‌های آنلاین وردپرسی از صفر تا اتصال درگاه پرداخت</p>
+    </div>
+
+    <div class="skill-card">
+      <h4>WoodMart</h4>
+      <p data-fa="سفارشی‌سازی کامل قالب فروشگاهی WoodMart برای ساخت فروشگاه‌های حرفه‌ای و زیبا" data-en="Fully customizing the WoodMart theme to build beautiful, professional online stores">سفارشی‌سازی کامل قالب فروشگاهی WoodMart برای ساخت فروشگاه‌های حرفه‌ای و زیبا</p>
+    </div>
+
+    <div class="skill-card">
+      <h4 data-fa="سئوی داخلی (On-Page SEO)" data-en="On-Page SEO">سئوی داخلی (On-Page SEO)</h4>
+      <p data-fa="بهینه‌سازی محتوا، عنوان‌ها، توضیحات متا و ساختار صفحات برای رتبه بهتر در گوگل" data-en="Optimizing content, titles, meta descriptions and page structure for better Google rankings">بهینه‌سازی محتوا، عنوان‌ها، توضیحات متا و ساختار صفحات برای رتبه بهتر در گوگل</p>
+    </div>
+
+    <div class="skill-card">
+      <h4 data-fa="سئوی خارجی (Off-Page SEO)" data-en="Off-Page SEO">سئوی خارجی (Off-Page SEO)</h4>
+      <p data-fa="لینک‌سازی و افزایش اعتبار دامنه برای بهبود جایگاه سایت در نتایج جستجو" data-en="Link building and boosting domain authority to improve search result rankings">لینک‌سازی و افزایش اعتبار دامنه برای بهبود جایگاه سایت در نتایج جستجو</p>
+    </div>
+
+    <div class="skill-card">
+      <h4 data-fa="سئوی تکنیکال (Technical SEO)" data-en="Technical SEO">سئوی تکنیکال (Technical SEO)</h4>
+      <p data-fa="بهینه‌سازی سرعت، ایندکس‌شدن و ساختار فنی سایت برای عملکرد بهتر در موتورهای جستجو" data-en="Optimizing site speed, indexing and technical structure for better search engine performance">بهینه‌سازی سرعت، ایندکس‌شدن و ساختار فنی سایت برای عملکرد بهتر در موتورهای جستجو</p>
+    </div>
+
+    <div class="skill-card">
+      <h4 data-fa="سئوی محلی (Local SEO)" data-en="Local SEO">سئوی محلی (Local SEO)</h4>
+      <p data-fa="افزایش دیده‌شدن کسب‌وکار در جستجوهای محلی و نقشه گوگل برای جذب مشتریان نزدیک" data-en="Increasing business visibility in local searches and Google Maps to attract nearby customers">افزایش دیده‌شدن کسب‌وکار در جستجوهای محلی و نقشه گوگل برای جذب مشتریان نزدیک</p>
+    </div>
+
   </div>
 </section>
 
@@ -960,33 +1166,49 @@ body {
 
   <div class="glow-bg"></div>
 
-  <h1 class="p-title">Website Design Portfolio</h1>
-  <p class="p-sub">Three professional projects completed by me</p>
+  <h1 class="p-title" data-fa="نمونه کارهای طراحی سایت" data-en="Website Design Portfolio">نمونه کارهای طراحی سایت</h1>
+  <p class="p-sub" data-fa="چند پروژه حرفه‌ای انجام‌شده توسط من" data-en="A few professional projects I've completed">چند پروژه حرفه‌ای انجام‌شده توسط من</p>
 
   <div class="portfolio-grid">
 
     <!-- APBeauty -->
     <div class="p-card">
       <div class="p-img" style="background-image:url();"></div>
-      <h3>APBeauty – Cosmetics Store</h3>
-      <p>Designed a professional beauty products store with a custom UI/UX</p>
-      <a href="https://apbeauty.ir/" target="_blank" class="p-btn">View Website</a>
+      <h3 data-fa="AP Beauty – فروشگاه لوازم آرایشی" data-en="AP Beauty – Cosmetics Store">AP Beauty – فروشگاه لوازم آرایشی</h3>
+      <p data-fa="طراحی یک فروشگاه حرفه‌ای محصولات آرایشی با رابط کاربری اختصاصی" data-en="Designed a professional beauty products store with a custom UI/UX">طراحی یک فروشگاه حرفه‌ای محصولات آرایشی با رابط کاربری اختصاصی</p>
+      <a href="https://apbeauty.ir/" target="_blank" class="p-btn" data-fa="مشاهده سایت" data-en="View Website">مشاهده سایت</a>
     </div>
 
     <!-- Moein's Personal Website -->
     <div class="p-card">
       <div class="p-img" style="background-image:url();"></div>
-      <h3>Moein's Personal Website</h3>
-      <p>Modern design, services introduction, resume, and portfolio section</p>
-      <a href="https://startling-faloodeh-db143a.netlify.app/" target="_blank" class="p-btn">Visit Website</a>
+      <h3 data-fa="سایت شخصی معین فایق" data-en="Moein's Personal Website">سایت شخصی معین فایق</h3>
+      <p data-fa="طراحی مدرن، معرفی خدمات، رزومه و بخش نمونه کارها" data-en="Modern design, services introduction, resume, and portfolio section">طراحی مدرن، معرفی خدمات، رزومه و بخش نمونه کارها</p>
+      <a href="https://startling-faloodeh-db143a.netlify.app/" target="_blank" class="p-btn" data-fa="مشاهده سایت" data-en="Visit Website">مشاهده سایت</a>
     </div>
 
     <!-- MoeinGym Club -->
     <div class="p-card">
       <div class="p-img" style="background-image:url();"></div>
-      <h3>MoeinGym – Fitness Club</h3>
-      <p>Sports website design focusing on club services</p>
-      <a href="https://precious-taffy-697277.netlify.app/" target="_blank" class="p-btn">View Website</a>
+      <h3 data-fa="MoeinGym – باشگاه ورزشی" data-en="MoeinGym – Fitness Club">MoeinGym – باشگاه ورزشی</h3>
+      <p data-fa="طراحی سایت ورزشی با تمرکز بر خدمات باشگاه" data-en="Sports website design focusing on club services">طراحی سایت ورزشی با تمرکز بر خدمات باشگاه</p>
+      <a href="https://precious-taffy-697277.netlify.app/" target="_blank" class="p-btn" data-fa="مشاهده سایت" data-en="View Website">مشاهده سایت</a>
+    </div>
+
+    <!-- Gharchroom -->
+    <div class="p-card">
+      <div class="p-img" style="background-image:url();"></div>
+      <h3 data-fa="Gharchroom – فروش تجهیزات پرورش قارچ" data-en="Gharchroom – Mushroom Cultivation Equipment Store">Gharchroom – فروش تجهیزات پرورش قارچ</h3>
+      <p data-fa="طراحی فروشگاه آنلاین تجهیزات و لوازم پرورش قارچ با تجربه کاربری روان" data-en="Designed an online store for mushroom cultivation equipment with a smooth user experience">طراحی فروشگاه آنلاین تجهیزات و لوازم پرورش قارچ با تجربه کاربری روان</p>
+      <a href="https://gharchroom.com" target="_blank" class="p-btn" data-fa="مشاهده سایت" data-en="View Website">مشاهده سایت</a>
+    </div>
+
+    <!-- StylePikaso -->
+    <div class="p-card">
+      <div class="p-img" style="background-image:url();"></div>
+      <h3 data-fa="StylePikaso – فروشگاه پوشاک" data-en="StylePikaso – Clothing Store">StylePikaso – فروشگاه پوشاک</h3>
+      <p data-fa="توسعه فروشگاه اینترنتی لباس با استفاده از React، Node.js، Tailwind و TypeScript" data-en="Developed an online clothing store using React, Node.js, Tailwind and TypeScript">توسعه فروشگاه اینترنتی لباس با استفاده از React، Node.js، Tailwind و TypeScript</p>
+      <a href="#" target="_blank" class="p-btn" data-fa="مشاهده سایت" data-en="View Website">مشاهده سایت</a>
     </div>
 
   </div>
@@ -1000,8 +1222,8 @@ body {
   <!-- Particles Canvas -->
   <canvas id="socialParticles"></canvas>
 
-  <h2>Fast Connection Ways</h2>
-  <p class="social-desc">Contact Us With The Way That You Are Convenient With</p>
+  <h2 data-fa="راه‌های ارتباطی سریع" data-en="Fast Connection Ways">راه‌های ارتباطی سریع</h2>
+  <p class="social-desc" data-fa="با هر روشی که برایتان راحت‌تر است با من در تماس باشید" data-en="Contact me through whichever way is most convenient for you">با هر روشی که برایتان راحت‌تر است با من در تماس باشید</p>
 
   <div class="social-grid">
 
@@ -1010,7 +1232,7 @@ body {
       <div class="icon">
         <svg viewBox="0 0 24 24"><path d="M7 2h10a5 5 0 015 5v10a5 5 0 01-5 5H7a5 5 0 01-5-5V7a5 5 0 015-5zm5 5a5 5 0 100 10 5 5 0 000-10zm6.5-.5a1 1 0 10.001 2.001A1 1 0 0018.5 6.5z"/></svg>
       </div>
-      <strong>Instagram</strong>
+      <strong data-fa="اینستاگرام" data-en="Instagram">اینستاگرام</strong>
       <span>Regzly</span>
     </a>
 
@@ -1019,7 +1241,7 @@ body {
       <div class="icon">
         <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 00-8.53 15.18L2 22l4.97-1.3A10 10 0 1012 2zm0 18a8 8 0 01-4.06-1.1l-.29-.17-2.95.77.79-2.88-.19-.3A8 8 0 1112 20zm4.47-5.53c-.25-.13-1.47-.72-1.7-.8-.23-.08-.4-.13-.57.13-.17.25-.65.8-.8.96-.15.17-.3.19-.55.06-.25-.13-1.05-.39-2-1.24-.74-.66-1.24-1.47-1.38-1.72-.15-.25-.02-.38.11-.5.12-.12.25-.3.38-.45.13-.15.17-.25.25-.42.08-.17.04-.32-.02-.45-.06-.13-.57-1.37-.78-1.88-.2-.48-.4-.42-.57-.43h-.48c-.17 0-.45.06-.68.32-.23.25-.9.88-.9 2.13 0 1.25.92 2.46 1.05 2.63.13.17 1.82 2.78 4.4 3.9.61.26 1.09.42 1.46.54.61.19 1.17.16 1.61.1.49-.07 1.47-.6 1.68-1.18.21-.58.21-1.08.15-1.18-.06-.1-.23-.16-.48-.29z"/></svg>
       </div>
-      <strong>WhatsApp</strong>
+      <strong data-fa="واتساپ" data-en="WhatsApp">واتساپ</strong>
       <span><bdi>+989965745535</bdi></span>
     </a>
 
@@ -1028,7 +1250,7 @@ body {
       <div class="icon">
         <svg viewBox="0 0 24 24"><path d="M9.04 15.44l-.38 5.36c.55 0 .78-.24 1.07-.53l2.56-2.43 5.3 3.88c.97.54 1.66.26 1.9-.9L23.96 3.7c.28-1.28-.46-1.78-1.33-1.45L1.3 10.54c-1.25.49-1.23 1.19-.21 1.51l5.55 1.73L19.53 6.3c.6-.4 1.15-.18.7.22z"/></svg>
       </div>
-      <strong>Telegram</strong>
+      <strong data-fa="تلگرام" data-en="Telegram">تلگرام</strong>
       <span>DontBelieveThat</span>
     </a>
 
@@ -1037,7 +1259,7 @@ body {
       <div class="icon">
         <svg viewBox="0 0 24 24"><path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.05-.24 11.36 11.36 0 003.56.57 1 1 0 011 1v3.6a1 1 0 01-1 1A17 17 0 013 5a1 1 0 011-1h3.6a1 1 0 011 1 11.36 11.36 0 00.57 3.56 1 1 0 01-.25 1.05z"/></svg>
       </div>
-      <strong>Call</strong>
+      <strong data-fa="تماس تلفنی" data-en="Call">تماس تلفنی</strong>
       <span><bdi>+989965745535</bdi></span>
     </div>
 
@@ -1055,15 +1277,15 @@ body {
   <div class="form-wrapper">
 
     <div class="form-info">
-      <h3 style="font-size: 40px;">Begin a Professional Co-op</h3>
-      <p>
-       Fill Out The Form, I Call You Rapidly And Recommend The Best Path
+      <h3 style="font-size: 40px;" data-fa="شروع یک همکاری حرفه‌ای" data-en="Start a Professional Collaboration">شروع یک همکاری حرفه‌ای</h3>
+      <p data-fa="فرم را پر کنید، در سریع‌ترین زمان با شما تماس می‌گیرم و بهترین مسیر را پیشنهاد می‌دهم" data-en="Fill out the form, I'll call you quickly and recommend the best path">
+       فرم را پر کنید، در سریع‌ترین زمان با شما تماس می‌گیرم و بهترین مسیر را پیشنهاد می‌دهم
       </p>
 
       <ul>
-        <li>✔️ Free Guiding</li>
-        <li>✔️ Rapid Response</li>
-        <li>✔️ Dedicated Solution</li>
+        <li data-fa="✔️ مشاوره رایگان" data-en="✔️ Free Consultation">✔️ مشاوره رایگان</li>
+        <li data-fa="✔️ پاسخ‌گویی سریع" data-en="✔️ Rapid Response">✔️ پاسخ‌گویی سریع</li>
+        <li data-fa="✔️ راه‌حل اختصاصی" data-en="✔️ Dedicated Solution">✔️ راه‌حل اختصاصی</li>
       </ul>
     </div>
 
@@ -1071,25 +1293,25 @@ body {
 
       <div class="input-group">
         <input type="text" required placeholder=" ">
-        <label>Name</label>
+        <label data-fa="نام" data-en="Name">نام</label>
       </div>
 
       <div class="input-group">
         <input type="tel" required placeholder=" ">
-        <label>Phone Number</label>
+        <label data-fa="شماره تماس" data-en="Phone Number">شماره تماس</label>
       </div>
 
       <div class="input-group">
         <input type="email" placeholder=" ">
-        <label>Email (Optional)</label>
+        <label data-fa="ایمیل (اختیاری)" data-en="Email (Optional)">ایمیل (اختیاری)</label>
       </div>
 
       <div class="input-group textarea">
         <textarea rows="4" required placeholder=" "></textarea>
-        <label>Regarding The Project</label>
+        <label data-fa="درباره پروژه" data-en="Regarding The Project">درباره پروژه</label>
       </div>
 
-      <button type="submit" class="neon-submit">Send Request</button>
+      <button type="submit" class="neon-submit" data-fa="ارسال درخواست" data-en="Send Request">ارسال درخواست</button>
 
     </form>
 
@@ -1232,6 +1454,45 @@ document.addEventListener("DOMContentLoaded", () => {
   const menuBtn = document.querySelector('.menu-btn');
   const closeBtn = document.querySelector('.close-menu');
   const mobileMenu = document.querySelector('.mobile-menu');
+
+// ===== Persian / English language toggle =====
+(function(){
+  const langBtn = document.getElementById('langToggle');
+  const langLabel = document.getElementById('langLabel');
+  const htmlEl = document.documentElement;
+  const bodyEl = document.body;
+  const saved = localStorage.getItem('site-lang') || 'fa';
+
+  function applyLang(lang){
+    document.querySelectorAll('[data-fa][data-en]').forEach(el => {
+      const value = lang === 'fa' ? el.getAttribute('data-fa') : el.getAttribute('data-en');
+      if(el.getAttribute('data-html') === 'true'){
+        el.innerHTML = value;
+      } else {
+        el.textContent = value;
+      }
+    });
+    if(lang === 'fa'){
+      htmlEl.setAttribute('lang','fa');
+      htmlEl.setAttribute('dir','rtl');
+      bodyEl.style.direction = 'rtl';
+      langLabel.textContent = 'EN';
+    } else {
+      htmlEl.setAttribute('lang','en');
+      htmlEl.setAttribute('dir','ltr');
+      bodyEl.style.direction = 'ltr';
+      langLabel.textContent = 'فا';
+    }
+    localStorage.setItem('site-lang', lang);
+  }
+
+  applyLang(saved);
+
+  langBtn.addEventListener('click', () => {
+    const current = localStorage.getItem('site-lang') || 'fa';
+    applyLang(current === 'fa' ? 'en' : 'fa');
+  });
+})();
 </script>
 
 </body>
