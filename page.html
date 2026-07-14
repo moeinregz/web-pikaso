@@ -1,0 +1,1238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Moein Fayegh</title>
+	<style>
+				:root{
+  --bg:#020205;
+  --purple1:#910aff;
+  --purple2:#b93fff;
+  --purple3:#be6eff;
+}
+@font-face {
+    font-family: "Vazir";
+    src: url("./Vazir.woff2") format("woff2");
+}
+
+body {
+	font-family: "Vazir"!important;
+	background-color:var(--bg-dark)!important;
+}
+
+
+/* HERO */
+.hero{min-height:100vh; display:flex; justify-content:center; align-items:center; padding:16px; background-color: #03040a;}
+
+/* Energy wrap */
+.energy-wrap{position:relative; overflow: visible;}
+.energy-wrap::before{
+  content:"";
+  position:absolute;
+  inset:-2.5rem;
+  background:
+    radial-gradient(circle at 20% 30%, var(--purple3), transparent 40%),
+    radial-gradient(circle at 80% 60%, var(--purple1), transparent 45%),
+    radial-gradient(circle at 50% 90%, var(--purple2), transparent 50%);
+  filter:blur(4rem);
+  opacity:.9;
+  z-index: 1;
+  animation:energyMove 20s linear infinite;
+  overflow: visible;
+
+}
+@keyframes energyMove{
+  0%{transform:translate(0,0) rotate(0deg);}
+  50%{transform:translate(20px, -20px) rotate(180deg);}
+  100%{transform:translate(0,0) rotate(360deg);}
+}
+
+/* Tablet */
+.tablet{
+  position:relative;
+  z-index:2;
+  width:min(90vw,80rem);
+  aspect-ratio:16/9;
+  padding:1rem;
+  border-radius:2.4rem;
+  background:rgba(255,255,255,.06);
+  backdrop-filter:blur(14px);
+  box-shadow:
+    inset 0 0 0 1px rgba(255,255,255,.15),
+    0 30px 6rem rgba(0,0,0,.85);
+  transition: transform .4s;
+}
+.tablet:hover{transform: scale(1.02);}
+
+/* Screen */
+.screen{
+  width:100%;
+  height:100%;
+  border-radius:1.6rem;
+  background:#000;
+  display:flex;
+  flex-direction: column;
+  align-items:center;
+  justify-content:center;
+  position:relative;
+  overflow:hidden;
+}
+
+/* Particle Layer */
+.particle-layer{
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+  z-index:0;
+}
+
+/* Glow Bottom */
+.screen::after{
+  content:"";
+  position:absolute;
+  bottom:-30%;
+  left:-20%;
+  width:140%;
+  height:60%;
+  background:radial-gradient(circle, rgba(145, 10, 255, 0.35), transparent 60%);
+  filter:blur(4rem);
+  animation:glowPulse 3s ease-in-out infinite alternate;
+}
+@keyframes glowPulse{
+  0%{opacity:.5;}
+  100%{opacity:1;}
+}
+
+/* Brand Title */
+.brand-title{
+  font-size:clamp(2.6rem,6vw,7rem);
+  font-weight:900;
+  color:#f5f7ff;
+  text-shadow:
+    0 0 20px rgba(145, 10, 255, 0.35),
+    0 0 60px rgba(145, 10, 255, 0.5),
+    0 0 120px rgba(124, 10, 255, 0.3);
+  text-align:center;
+  z-index:1;
+  animation:brandGlow 3s ease-in-out infinite alternate;
+}
+@keyframes brandGlow{
+  0%{text-shadow:0 0 20px rgba(145, 10, 255, 0.35),0 0 60px rgba(165, 10, 255, 0.5),0 0 120px rgba(177, 10, 255, 0.3);}
+  50%{text-shadow:0 0 30px rgba(186, 10, 255, 0.6),0 0 80px rgba(157, 10, 255, 0.7),0 0 150px rgba(165, 10, 255, 0.4);}
+  100%{text-shadow:0 0 20px rgba(145, 10, 255, 0.35),0 0 60px rgba(137, 10, 255, 0.5),0 0 120px rgba(137, 10, 255, 0.3);}
+}
+
+/* Mobile */
+@media(max-width:600px){
+  .tablet{height:calc(90svh - 32px); border-radius:38px;}
+  .screen{border-radius:30px;}
+}
+
+.brand-sub {
+  color: white;
+  font-size: 20px;
+}
+
+
+:root{
+  --bg-dark:#000;
+  --blue-main:#9d0aff;
+  --blue-dark:#5b0a91;
+  --blue-deep:#21062e;
+  --glass:rgba(255,255,255,.08);
+}
+
+/* Base Section */
+.support-section{
+  background-color: #03040a;
+  min-height:100svh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  padding:clamp(24px,5vw,80px);
+  color:#fff;
+  position:relative;
+  overflow:hidden;
+  z-index: 0;
+}
+
+/* Particle Canvas */
+#supportParticles{
+  position:absolute; top:0; left:0; width:100%; height:100%;
+  z-index:0;
+  pointer-events:none;
+}
+
+/* Content */
+.content{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:70px;
+  width:100%;
+  max-width:1400px;
+  position:relative;
+  z-index:1;
+}
+
+/* Card */
+.card1{
+  padding:clamp(2.5em,4vw,5em);
+  background:linear-gradient(135deg, #000 50%, #1d0a33 100%);
+  text-align:center;
+  border-radius:20px;
+  position:relative;
+  display:flex;
+  flex-direction:column;
+  gap:25px;
+  box-shadow:0 0 35px rgba(177, 10, 255, 0.4);
+}
+
+/* Neon Glow Border */
+.card1::before,
+.card1::after{
+  content:'';
+  position:absolute;
+  inset:-4px;
+  border-radius:20px;
+  background-image:conic-gradient(
+    from var(--angle,0deg),
+    transparent 60%,
+    var(--blue-main)
+  );
+  z-index:-1;
+  filter:blur(1.8rem);
+  opacity:.55;
+  animation:spin 4s linear infinite;
+}
+
+/* H2 Title Glow */
+.card1 h2{
+  font-size:clamp(1.8rem,3vw,3rem);
+  background:linear-gradient(90deg,var(--blue-main),var(--blue-dark));
+  -webkit-background-clip:text;
+  color:transparent;
+  text-shadow:0 0 2rem rgba(157, 10, 255, 0.4);
+}
+
+/* Chat Messages */
+.chat{
+  margin-top:20px;
+  display:flex;
+  flex-direction:column;
+  gap:20px;
+}
+.message{
+  max-width:80%;
+  padding:clamp(12px,1.5vw,20px);
+  border-radius:24px;
+  font-size:clamp(.95rem,1.2vw,1.3rem);
+  opacity:0;
+  transform:translateX(-30px);
+  animation:messageEnter .6s forwards;
+}
+.from-us{
+  background:linear-gradient(135deg,var(--blue-main),var(--blue-dark));
+  box-shadow:0 0 2rem rgba(157, 10, 255, 0.55);
+  align-self:flex-start;
+  animation-delay:.5s;
+}
+.from-user{
+  background:linear-gradient(135deg,#fff,#d6e6ff);
+  box-shadow:0 0 1.5rem rgba(177, 10, 255, 0.35);
+  align-self:flex-end;
+  color:#000;
+  animation-delay:1.2s;
+}
+.message:nth-child(3){animation-delay:2s;}
+
+/* Text Side */
+.text{
+  flex:1 1 500px;
+  opacity:0;
+  transform:translateX(100px);
+  animation:slideRight 1s forwards .4s;
+  text-align: left;
+}
+.text h3{
+  font-size:clamp(2.8rem,3.5vw,3.4rem);
+  margin-bottom:20px;
+  color:var(--blue-main);
+  text-shadow:0 0 2rem rgba(165, 10, 255, 0.5);
+}
+.text p{
+  font-size:clamp(1.1rem,1.2vw,1.4rem);
+  line-height:1.9;
+  margin-bottom:50px;
+  color:#dbe9ff;
+}
+
+/* Neon Button */
+.btn{
+  border:none;
+  outline:none;
+  color:#000;
+  position:relative;
+  
+  z-index:0;
+  border-radius:16px;
+  font-size:clamp(1rem,1.2vw,1.3rem);
+  padding:clamp(14px,1.5vw,20px) clamp(32px,3vw,60px);
+  cursor:pointer;
+  text-decoration:none;
+  overflow:hidden;
+}
+.btn::after{
+  content:"";
+  position:absolute; inset:0;
+  background:rgba(255,255,255,.08);
+  backdrop-filter:blur(14px);
+  border:2px solid rgba(255,255,255,.15);
+  border-radius:16px;
+  z-index:-1;
+}
+.btn::before{
+  content:"";
+  position:absolute; inset:-3px;
+  background:linear-gradient(45deg,#fff,var(--blue-main),#fff,var(--blue-dark),#fff);
+  background-size:600%;
+  filter:blur(16px);
+  animation:glowing 20s linear infinite;
+  border-radius:20px;
+  z-index:-2;
+}
+.btn:hover{color:#fff;}
+.btn:hover::after{background:rgba(255,255,255,.15);}
+
+/* Animations */
+@keyframes spin{to{--angle:360deg;}}
+@keyframes messageEnter{to{opacity:1; transform:translateX(0);}}
+@keyframes slideRight{to{opacity:1; transform:translateX(0);}}
+@keyframes glowing{
+  0%{background-position:0 0;}
+  50%{background-position:400% 0;}
+  100%{background-position:0 0;}
+}
+
+/* Responsive */
+@media(max-width:900px){
+  .content{
+    flex-direction:column;
+    gap:50px;
+  }
+  .text{
+    width:90%;
+    transform:translateY(100px);
+    animation:slideUp 1s forwards .3s;
+  }
+  .message{max-width:100%;}
+}
+@keyframes slideUp{to{opacity:1; transform:translateY(0);}}
+
+.portfolio-section{
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  background: #03040a; /* کل سکشن مشکی پایه */
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 20px;
+}
+
+/* نورهای بک‌گراند – وسط سکشن */
+.glow-bg{
+  position:absolute;
+  width:1600px;
+  max-width:100vw;
+  height:50%;   /* فقط وسط */
+  top:25%;      /* فاصله از بالا */
+  left:50%;
+  transform:translateX(-50%);
+  pointer-events:none;
+  z-index:0;
+
+  background:radial-gradient(circle at center,
+    rgba(116, 10, 255, 0.45) 0%,
+    rgba(124, 10, 255, 0.25) 35%,
+    rgba(137, 10, 255, 0.15) 50%,
+    rgba(157, 10, 255, 0.05) 70%,
+    transparent 50%
+  );
+
+  filter:blur(120px); /* بلور کمتر برای نشت کمتر */
+}
+
+.glow-bg2{
+  position:absolute;
+  width:1500px;
+  max-width:100vw;
+  height:40%;    /* کمتر و متمرکز */
+  top:30%;       /* فاصله از بالا */
+  left:50%;
+  transform:translateX(-50%);
+  pointer-events:none;
+  z-index:0;
+
+  background:radial-gradient(circle at center,
+    rgba(190, 111, 255, 0.35) 0%,
+    rgba(190, 111, 255, 0.18) 40%,
+    rgba(197, 111, 255, 0.05) 70%,
+    transparent 50%
+  );
+
+  filter:blur(100px);
+}
+
+/* تیتر */
+.p-title{
+  font-size:42px;
+  color:#fff;
+  margin:20px 0 10px;
+  font-weight:900;
+  text-align:center;
+}
+.p-sub{
+  color:#aaa;
+  margin-bottom:40px;
+  text-align:center;
+}
+
+/* گرید */
+.portfolio-grid{
+  width:100%;
+  max-width:1200px;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+  gap:30px;
+  z-index:10;
+}
+
+/* کارت */
+.p-card{
+  background:rgba(255,255,255,0.05);
+  border:1px solid rgba(255,255,255,0.1);
+  border-radius:20px;
+  padding:20px;
+  backdrop-filter:blur(15px);
+  transition:0.3s;
+  text-align:center;
+  position:relative;
+}
+.p-card:hover{
+  transform:translateY(-8px);
+  border-color:var(--purple2);
+  box-shadow:0 0 20px rgba(119, 0, 255, 0.4);
+}
+
+/* عکس */
+.p-img{
+  width:100%;
+  height:200px;
+  background-size:cover;
+  background-position:center;
+  border-radius:15px;
+  margin-bottom:15px;
+}
+
+/* دکمه */
+.p-btn{
+  display:inline-block;
+  margin-top:15px;
+  padding:10px 22px;
+  background:linear-gradient(90deg, var(--purple1), var(--purple3));
+  color:#fff;
+  border-radius:12px;
+  text-decoration:none;
+  font-weight:600;
+  transition:0.3s;
+}
+.p-btn:hover{
+  box-shadow:0 0 12px var(--purple3);
+  transform:translateY(-3px);
+}
+
+.p-card h3{
+  color:#fff;
+  font-size:20px;
+}
+.p-card p{
+  color:#ccc;
+  font-size:14px;
+  margin-top:8px;
+}
+
+/* ================= ROOT ================= */
+:root{
+  --glass:rgba(137, 10, 255, 0.15);
+  --border:rgba(137, 10, 255, 0.35);
+  --glow:rgba(157, 10, 255, 0.6);
+}
+
+*{ box-sizing:border-box; }
+
+
+
+.scroll-down-btn {
+  position: fixed;
+  bottom: 25px;
+  left: 25px;
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.08);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 4px solid rgba(255,255,255,0.5);
+  box-shadow: 0 0 15px rgba(255,255,255,0.2), 0 0 30px rgba(255,255,255,0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  z-index: 9999;
+}
+
+.scroll-down-btn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 20px rgba(255,255,255,0.4), 0 0 40px rgba(255,255,255,0.2);
+}
+
+.scroll-down-btn .arrow {
+  font-size: 28px;
+  color: #fff;
+  transition: transform 0.3s ease;
+}
+
+.scroll-down-btn.up .arrow {
+  transform: rotate(180deg);
+}
+
+@media (max-width:600px){
+  .scroll-down-btn{
+    width:48px;
+    height:48px;
+    left:16px;
+    bottom:20px;
+  }
+  .scroll-down-btn .arrow { font-size:24px; }
+}
+
+
+
+/* ============================= */
+/* فونت */
+@font-face {
+  font-family: 'IRANYekanBlack';
+  src: url('/wp-content/uploads/fonts/IRANYekanWeb_Black.woff2') format('woff2');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ============================= */
+/* HTML و BODY */
+html {
+  scroll-behavior: smooth;
+  overflow-y: auto; /* اصلاح شد: قبلاً hidden بود */
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'IRANYekanBlack', sans-serif;
+    font-weight: 900;
+    background-color: #000;
+    overflow-x: hidden; /* فقط افقی مخفی */
+    overflow-y: auto; /* اسکرول عمودی فعال */
+    direction: rtl;
+    scroll-behavior: smooth;
+    width: 100%;
+    height: 100%;
+    background: #000000;
+}
+
+
+
+/* ============================= */
+/* دیگر استایل‌ها */
+.gh {
+    writing-mode: horizontal-tb;
+}
+@media (min-width: 768px) {
+    .gh {
+        writing-mode: vertical-lr;
+    }
+}
+
+
+
+/* مخفی کردن موس پیش‌فرض */
+
+
+
+.cursor-ring {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 2px solid white; /* رنگ بنفش اصلی */
+  background: transparent;
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%); /* مرکز دایره روی نوک موس */
+  transition: width 0.2s ease, height 0.2s ease, border-width 0.2s ease, box-shadow 0.2s ease;
+}
+
+.cursor-ring.hovered {
+  width: 40px;
+  height: 40px;
+  border-width: 3px;
+  box-shadow:
+    0 0 16px white,   /* glow بنفش */
+    inset 0 0 8px rgba(161,45,255,0.35); /* glow داخلی */
+}
+
+
+		:root {
+  --bg-dark:#05030a;
+  --card-dark:rgba(16, 8, 20, 0.55);
+}
+
+
+/* Section Base */
+.social-neon-section, .contact-form-neon {
+  background: var(--bg-dark);
+  color: #fff;
+  height: 50vh;
+  text-align: center;
+  position: relative;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.contact-form-neon {
+	margin-top: 30px;
+}
+
+/* Particles Canvas */
+#socialParticles, #formParticles {
+  position: absolute;
+  top:0; left:0; width:100%; height:100%;
+  z-index:0;
+  pointer-events:none;
+}
+
+/* Titles */
+.social-neon-section h2, .contact-form-neon h3 {
+  font-size: 48px;
+  font-weight: 900;
+  margin-bottom: 10px;
+  background: linear-gradient(90deg,var(--purple1),var(--purple3));
+  -webkit-background-clip: text;
+  color: transparent;
+  position: relative;
+  z-index:1;
+}
+.social-neon-section .social-desc, .contact-form-neon p {
+  font-size: 18px;
+  opacity: 0.7;
+  margin-bottom: 60px;
+  position: relative;
+  z-index:1;
+}
+
+/* Social Grid */
+.social-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(220px,1fr));
+  gap: 40px;
+  max-width: 1200px;
+  margin: auto;
+  position: relative;
+  z-index:1;
+}
+
+@supports (corner-shape: squircle){
+  .social-card{
+    border-radius:10000px;
+    corner-shape:squircle;
+  }
+}
+
+/* Social Cards */
+.social-card {
+  background: var(--card-dark);
+  padding: 70px;
+  position: relative;
+  text-decoration: none;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: 0.4s;
+  cursor: pointer;
+  border: 1px solid rgba(255,255,255,0.06);
+  box-shadow: 0 0 25px rgba(150, 58, 255, 0.1);
+  z-index:1;
+}
+.social-card:hover {
+  transform: translateY(-10px) scale(1.06);
+  box-shadow: 0 0 55px var(--purple2);
+}
+.social-card .icon svg {
+  width: 60px;
+  height: 60px;
+  stroke: var(--purple1);
+  fill: none;
+  transition: all 0.3s;
+}
+.social-card:hover .icon svg {
+  stroke: var(--purple3);
+  filter: drop-shadow(0 0 18px var(--purple3));
+}
+.social-card strong { font-size: 20px; margin-bottom: 5px; }
+.social-card span { font-size: 16px; opacity: 0.7; }
+
+/* Contact Form */
+.contact-form-neon .form-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin: auto;
+  gap: 60px;
+  justify-content: center;
+  align-items: flex-start;
+  position: relative;
+  z-index:1;
+}
+.form-info { flex:1 1 350px; text-align:left; z-index:1; }
+.form-info ul { margin-top:20px; list-style:none; padding:0; }
+.form-info ul li { margin-bottom:10px; font-weight:600; }
+
+/* Neon Form */
+.neon-form {
+  flex:1 1 400px;
+  background: var(--card-dark);
+  padding:40px;
+  border-radius:25px;
+  backdrop-filter: blur(15px);
+  border:1px solid rgba(255,255,255,0.06);
+} 
+.input-group { position:relative; margin-bottom:25px; }
+.input-group input, .input-group textarea {
+  width:100%;
+  padding:14px 16px;
+  border-radius:12px;
+  border:2px solid rgba(255,255,255,0.2);
+  background: rgba(255,255,255,0.05);
+  color:#fff;
+  font-size:16px;
+  outline:none;
+  transition:0.3s;
+}
+.input-group label {
+  position:absolute;
+  top:50%; left:16px;
+  transform:translateY(-50%);
+  pointer-events:none;
+  color:rgba(255,255,255,0.6);
+  transition:0.3s;
+}
+.input-group input:focus + label,
+.input-group input:not(:placeholder-shown) + label,
+.input-group textarea:focus + label,
+.input-group textarea:not(:placeholder-shown) + label {
+  top:-12px;
+  font-size:12px;
+  color: var(--purple2);
+}
+.neon-submit {
+  font-family: "Vazir";
+  padding:14px 32px;
+  font-size:16px;
+  border-radius:12px;
+  border:2px solid var(--purple2);
+  background: var(--purple1);
+  color:#fff;
+  cursor:pointer;
+  transition:0.3s;
+}
+.neon-submit:hover {
+  background: var(--purple2);
+  box-shadow: 0 0 35px var(--purple2);
+  transform: translateY(-3px) scale(1.03);
+}
+
+/* Responsive */
+@media(max-width:900px){
+  .contact-form-neon .form-wrapper { flex-direction:column; align-items:center; }
+  .form-info { text-align:center; }
+}
+
+
+/* Glass Navigation */
+.glass-nav {
+  position: fixed; /* برای اینکه همیشه بالا بمونه */
+  top: 24px; /* کمی فاصله از بالا */
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1000; /* مطمئن شیم بالاتر از همه چی باشه */
+  width: fit-content; /* عرض به اندازه محتوا */
+  padding: 16px 32px;
+  border-radius: 24px;
+  background: rgba(255, 255, 255, 0.07); /* رنگ پایه شیشه‌ای */
+  backdrop-filter: blur(15px); /* اعمال بلور */
+  -webkit-backdrop-filter: blur(15px); /* برای سافاری */
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 255, 255, 0.1), /* حاشیه داخلی نازک */
+    0 10px 30px rgba(0, 0, 0, 0.3); /* سایه خارجی */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+  transition: all 0.3s ease;
+}
+
+
+
+.glass-nav:hover {
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 255, 255, 0.2),
+    0 15px 40px rgba(0, 0, 0, 0.4);
+}
+
+.nav-logo {
+  font-size: clamp(1.4rem, 3vw, 2rem);
+  font-weight: 900;
+  color: #f5f7ff; /* رنگ متن لوگو */
+  text-shadow: 0 0 15px black;;
+  white-space: nowrap; /* جلوگیری از شکستن خط اسم */
+}
+
+
+.nav-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  gap: 28px;
+}
+
+.nav-links li a {
+  font-size: clamp(1rem, 2vw, 1.2rem);
+  color: #e0eaff;
+  text-decoration: none;
+  font-weight: 600;
+  position: relative;
+  padding-bottom: 4px;
+  transition: color 0.3s ease;
+}
+
+/* زیرخط شناور موقع هاور */
+.nav-links li a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #910aff, #000000); /* گرادیانت آبی */
+  transition: width 0.35s ease;
+}
+
+.nav-links li a:hover {
+  color: #fff; /* سفید شدن متن موقع هاور */
+}
+
+.nav-links li a:hover::after {
+  width: 100%; /* کامل شدن زیرخط */
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+  .glass-nav {
+    width: 90%; /* پهن‌تر شدن در موبایل */
+    padding: 12px 20px;
+    top: 16px;
+  }
+  .nav-links {
+    gap: 16px; /* کاهش فاصله لینک‌ها */
+  }
+  .nav-logo {
+    font-size: clamp(1.2rem, 3vw, 1.6rem);
+  }
+}
+
+@media (max-width: 500px) {
+  .glass-nav {
+    flex-wrap: wrap; /* اجازه دادن بهwrap شدن */
+    justify-content: center;
+    padding: 16px;
+    width: 95%;
+  }
+  .nav-logo {
+    margin-bottom: 12px; /* فاصله زیر لوگو */
+    width: 100%;
+    text-align: center;
+  }
+  .nav-links {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+    width: 100%;
+  }
+}
+
+
+	</style>
+</head>
+<body>
+
+
+<nav class="glass-nav">
+
+<ul class="nav-links">
+
+    <li><a href="#contact">Contact</a></li>
+    <li><a href="#projects">Portfolio</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#hero">Home</a></li>
+
+
+
+</ul>
+<div class="nav-logo">Moein Fayegh</div>
+
+</nav>
+
+
+    <section class="hero" id="hero">
+  <div class="energy-wrap">
+    <div class="tablet">
+      <div class="screen">
+        <div class="particle-layer"></div>
+        <h1 class="brand-title">Moein Fayegh</h1>
+        <p class="brand-sub">Hey It's <u>Moein Fayegh</u> a Senior Front-End Web Developer</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="support-section" id="about">
+
+  <!-- Particles Canvas -->
+  <canvas id="supportParticles"></canvas>
+
+  <div class="content">
+    <div class="card1">
+      <h2>Front-End Developer</h2>
+
+      <div class="chat">
+        <!-- This section can be used as a summary of skills or experience -->
+        <div class="message from-us">Specialized in designing and implementing innovative solutions</div>
+        <div class="message from-user">Extensive experience in modern web development</div>
+        <div class="message from-us">Committed to delivering high-quality results</div>
+      </div>
+    </div>
+
+    <div class="text">
+      <h3 style="direction: ltr;">Professional Summary</h3>
+      <p style="direction: ltr;">
+        A creative and results-oriented professional with a proven track record in website design and development. Proficient in HTML, CSS, and JavaScript, as well as WordPress and all its themes along with Elementor, for creating outstanding user experiences and solving complex challenges.
+      </p>
+      <a href="#portfolio" class="btn" style="direction: ltr;">Portfolio</a> <!-- Link to portfolio or projects section -->
+
+    </div>
+  </div>
+</section>
+
+<section class="portfolio-section" id="projects">
+
+  <div class="glow-bg"></div>
+
+  <h1 class="p-title">Website Design Portfolio</h1>
+  <p class="p-sub">Three professional projects completed by me</p>
+
+  <div class="portfolio-grid">
+
+    <!-- APBeauty -->
+    <div class="p-card">
+      <div class="p-img" style="background-image:url();"></div>
+      <h3>APBeauty – Cosmetics Store</h3>
+      <p>Designed a professional beauty products store with a custom UI/UX</p>
+      <a href="https://apbeauty.ir/" target="_blank" class="p-btn">View Website</a>
+    </div>
+
+    <!-- Moein's Personal Website -->
+    <div class="p-card">
+      <div class="p-img" style="background-image:url();"></div>
+      <h3>Moein's Personal Website</h3>
+      <p>Modern design, services introduction, resume, and portfolio section</p>
+      <a href="https://startling-faloodeh-db143a.netlify.app/" target="_blank" class="p-btn">Visit Website</a>
+    </div>
+
+    <!-- MoeinGym Club -->
+    <div class="p-card">
+      <div class="p-img" style="background-image:url();"></div>
+      <h3>MoeinGym – Fitness Club</h3>
+      <p>Sports website design focusing on club services</p>
+      <a href="https://precious-taffy-697277.netlify.app/" target="_blank" class="p-btn">View Website</a>
+    </div>
+
+  </div>
+
+</section>
+
+
+<section class="social-neon-section" id="contact">
+  <div class="s2">
+
+  <!-- Particles Canvas -->
+  <canvas id="socialParticles"></canvas>
+
+  <h2>Fast Connection Ways</h2>
+  <p class="social-desc">Contact Us With The Way That You Are Convenient With</p>
+
+  <div class="social-grid">
+
+    <!-- Instagram -->
+    <a href="https://instagram.com/regzly" target="_blank" class="social-card instagram">
+      <div class="icon">
+        <svg viewBox="0 0 24 24"><path d="M7 2h10a5 5 0 015 5v10a5 5 0 01-5 5H7a5 5 0 01-5-5V7a5 5 0 015-5zm5 5a5 5 0 100 10 5 5 0 000-10zm6.5-.5a1 1 0 10.001 2.001A1 1 0 0018.5 6.5z"/></svg>
+      </div>
+      <strong>Instagram</strong>
+      <span>Regzly</span>
+    </a>
+
+    <!-- WhatsApp -->
+    <a href="https://wa.me/98965745535" target="_blank" class="social-card whatsapp">
+      <div class="icon">
+        <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 00-8.53 15.18L2 22l4.97-1.3A10 10 0 1012 2zm0 18a8 8 0 01-4.06-1.1l-.29-.17-2.95.77.79-2.88-.19-.3A8 8 0 1112 20zm4.47-5.53c-.25-.13-1.47-.72-1.7-.8-.23-.08-.4-.13-.57.13-.17.25-.65.8-.8.96-.15.17-.3.19-.55.06-.25-.13-1.05-.39-2-1.24-.74-.66-1.24-1.47-1.38-1.72-.15-.25-.02-.38.11-.5.12-.12.25-.3.38-.45.13-.15.17-.25.25-.42.08-.17.04-.32-.02-.45-.06-.13-.57-1.37-.78-1.88-.2-.48-.4-.42-.57-.43h-.48c-.17 0-.45.06-.68.32-.23.25-.9.88-.9 2.13 0 1.25.92 2.46 1.05 2.63.13.17 1.82 2.78 4.4 3.9.61.26 1.09.42 1.46.54.61.19 1.17.16 1.61.1.49-.07 1.47-.6 1.68-1.18.21-.58.21-1.08.15-1.18-.06-.1-.23-.16-.48-.29z"/></svg>
+      </div>
+      <strong>WhatsApp</strong>
+      <span><bdi>+989965745535</bdi></span>
+    </a>
+
+    <!-- Telegram -->
+    <a href="https://t.me/dontbelievethat" target="_blank" class="social-card telegram">
+      <div class="icon">
+        <svg viewBox="0 0 24 24"><path d="M9.04 15.44l-.38 5.36c.55 0 .78-.24 1.07-.53l2.56-2.43 5.3 3.88c.97.54 1.66.26 1.9-.9L23.96 3.7c.28-1.28-.46-1.78-1.33-1.45L1.3 10.54c-1.25.49-1.23 1.19-.21 1.51l5.55 1.73L19.53 6.3c.6-.4 1.15-.18.7.22z"/></svg>
+      </div>
+      <strong>Telegram</strong>
+      <span>DontBelieveThat</span>
+    </a>
+
+    <!-- Phone -->
+    <div class="social-card phone">
+      <div class="icon">
+        <svg viewBox="0 0 24 24"><path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.05-.24 11.36 11.36 0 003.56.57 1 1 0 011 1v3.6a1 1 0 01-1 1A17 17 0 013 5a1 1 0 011-1h3.6a1 1 0 011 1 11.36 11.36 0 00.57 3.56 1 1 0 01-.25 1.05z"/></svg>
+      </div>
+      <strong>Call</strong>
+      <span><bdi>+989965745535</bdi></span>
+    </div>
+
+  </div>
+  </div>
+</section>
+
+
+
+<section class="contact-form-neon">
+<div class="s1">
+  <!-- Light Ring Canvas -->
+  <canvas id="formParticles"></canvas>
+
+  <div class="form-wrapper">
+
+    <div class="form-info">
+      <h3 style="font-size: 40px;">Begin a Professional Co-op</h3>
+      <p>
+       Fill Out The Form, I Call You Rapidly And Recommend The Best Path
+      </p>
+
+      <ul>
+        <li>✔️ Free Guiding</li>
+        <li>✔️ Rapid Response</li>
+        <li>✔️ Dedicated Solution</li>
+      </ul>
+    </div>
+
+    <form class="neon-form">
+
+      <div class="input-group">
+        <input type="text" required placeholder=" ">
+        <label>Name</label>
+      </div>
+
+      <div class="input-group">
+        <input type="tel" required placeholder=" ">
+        <label>Phone Number</label>
+      </div>
+
+      <div class="input-group">
+        <input type="email" placeholder=" ">
+        <label>Email (Optional)</label>
+      </div>
+
+      <div class="input-group textarea">
+        <textarea rows="4" required placeholder=" "></textarea>
+        <label>Regarding The Project</label>
+      </div>
+
+      <button type="submit" class="neon-submit">Send Request</button>
+
+    </form>
+
+  </div>
+  </div>
+</section>
+
+
+
+
+
+<div class="scroll-down-btn">
+  <span class="arrow">↓</span>
+</div>
+
+<div class="cursor-ring"></div>
+
+<script>
+  // Particle Background Support Section
+function createParticles(canvasId, color1, color2){
+  const canvas = document.getElementById(canvasId);
+  if(!canvas) return;
+  const ctx = canvas.getContext('2d');
+  canvas.width = canvas.offsetWidth;
+  canvas.height = canvas.offsetHeight;
+  const particles = [];
+  for(let i=0;i<70;i++){
+    particles.push({
+      x:Math.random()*canvas.width,
+      y:Math.random()*canvas.height,
+      r:Math.random()*3+1,
+      dx:(Math.random()-0.5)*0.5,
+      dy:(Math.random()-0.5)*0.5
+    });
+  }
+  function animate(){
+    ctx.clearRect(0,0,canvas.width,canvas.height);
+    particles.forEach(p=>{
+      p.x+=p.dx; p.y+=p.dy;
+      if(p.x<0||p.x>canvas.width) p.dx*=-1;
+      if(p.y<0||p.y>canvas.height) p.dy*=-1;
+      ctx.beginPath();
+      ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
+      ctx.fillStyle=`rgba(${color1},${Math.random()*0.5+0.3})`;
+      ctx.fill();
+    });
+    requestAnimationFrame(animate);
+  }
+  animate();
+}
+createParticles('supportParticles','124, 10, 255','146, 62, 255');
+
+document.addEventListener("DOMContentLoaded", () => {
+  const btn = document.querySelector('.scroll-down-btn');
+  const arrow = btn.querySelector('.arrow');
+
+  btn.addEventListener('click', () => {
+    const vh = window.innerHeight;
+    const scrollTop = window.scrollY;
+    
+    if (!btn.classList.contains('up')) {
+      // Scroll down 100vh
+      window.scrollTo({
+        top: scrollTop + vh,
+        behavior: 'smooth'
+      });
+    } else {
+      // Scroll to top
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    }
+  });
+
+    // تغییر جهت فلش هنگام رسیدن به پایین صفحه
+  window.addEventListener('scroll', () => {
+    const scrollTop = window.scrollY;
+    const scrollHeight = document.body.scrollHeight;
+    const vh = window.innerHeight;
+
+    if (scrollTop + vh >= scrollHeight - 1) {
+      btn.classList.add('up'); // فلش به بالا
+    } else {
+      btn.classList.remove('up'); // فلش به پایین
+    }
+  });
+});
+
+const cursor = document.querySelector('.cursor-ring');
+
+document.addEventListener('mousemove', e => {
+  cursor.style.left = e.clientX + 'px';
+  cursor.style.top = e.clientY + 'px';
+});
+
+document.querySelectorAll('a, button').forEach(el => {
+  el.addEventListener('mouseenter', () => cursor.classList.add('hovered'));
+  el.addEventListener('mouseleave', () => cursor.classList.remove('hovered'));
+});
+
+	document.addEventListener("DOMContentLoaded", function () {
+    const els = document.querySelectorAll("[data-settings*='entrance_animation']");
+    els.forEach(el => {
+        el.addEventListener("animationend", function () {
+            el.style.animation = "none";
+            el.dataset.animPlayed = "true";
+        }, { once: true });
+    });
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+
+  const lazySections = document.querySelectorAll(".lazy-anim");
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+
+      if (entry.isIntersecting) {
+        const target = entry.target;
+
+        // فعال‌سازی انیمیشن‌های CSS
+        target.classList.add("start");
+
+        // فعال کردن انیمیشن تایپ (اگر موجود باشد)
+        const typeElements = target.querySelectorAll(".typewriter, .typewriter-support");
+        typeElements.forEach(el => {
+          el.style.animationPlayState = "running";
+        });
+
+        // فقط یک‌بار اجرا شود
+        observer.unobserve(target);
+      }
+
+    });
+  }, { threshold: 0.3 });
+
+  lazySections.forEach(sec => observer.observe(sec));
+});
+  const menuBtn = document.querySelector('.menu-btn');
+  const closeBtn = document.querySelector('.close-menu');
+  const mobileMenu = document.querySelector('.mobile-menu');
+</script>
+
+</body>
+</html>
