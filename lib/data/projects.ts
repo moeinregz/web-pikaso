@@ -10,8 +10,9 @@ export const projects: Project[] = [
       fa: "سایت فروش تجهیزات پرورش قارچ و آموزش پرورش قارچ خانگی، با فروشگاه کامل و مدیریت سفارش.",
       en: "An online store for mushroom-growing kits and know-how, with a full storefront and order management.",
     },
-    tags: ["Next.js", "WooCommerce", "SEO"],
+    tags: ["WordPress", "WooCommerce", "SEO"],
     accent: "#2F6FED",
+    href: "https://gharchroom.com/"
   },
   {
     id: "2",
@@ -22,8 +23,9 @@ export const projects: Project[] = [
       fa: "فروشگاه آنلاین لوازم آرایشی و بهداشتی با تجربه خرید سریع و ویترین محصولات جذاب.",
       en: "A cosmetics storefront built for a fast checkout flow and an eye-catching product showcase.",
     },
-    tags: ["React", "Tailwind CSS", "Store"],
+    tags: ["Elementor", "WooCommerce", "WordPress"],
     accent: "#C97B4A",
+    href: "https://apbeauty.ir/"
   },
   {
     id: "3",
@@ -34,8 +36,9 @@ export const projects: Project[] = [
       fa: "فروشگاه پوشاک با تمرکز بر ویترین بصری قوی، فیلتر پیشرفته محصولات و تجربه خرید موبایل‌محور.",
       en: "An apparel store built around a strong visual showcase, advanced filtering and a mobile-first checkout.",
     },
-    tags: ["Next.js", "TypeScript", "Store"],
+    tags: ["React.js", "Node.js", "MongoDB"],
     accent: "#1B4B8F",
+    href: "https://style-pikaso.vercel.app/"
   },
   {
     id: "4",
@@ -46,7 +49,8 @@ export const projects: Project[] = [
       fa: "سایت شخصی و رزومه آنلاین با نمایش نمونه‌کارها، مهارت‌ها و راه ارتباطی مستقیم.",
       en: "A personal résumé site presenting work samples, skills, and a direct line of contact.",
     },
-    tags: ["Next.js", "Portfolio", "Custom"],
+    tags: ["Next.js", "Tailwind", "TypeScript"],
     accent: "#0F0F11",
+    href: "https://moein-fayegh.vercel.app/"
   },
 ];

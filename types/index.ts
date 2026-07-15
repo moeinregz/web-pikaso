@@ -22,6 +22,7 @@ export type Project = {
   description: { fa: string; en: string };
   tags: string[];
   accent: string;
+  href: string;
 };
 
 export type CartItem = {

@@ -7,6 +7,7 @@ export function ProjectCard({ project }: { project: Project }) {
   const { locale } = useLanguage();
 
   return (
+    <a href={project.href}>
     <div className="group overflow-hidden rounded-2xl border border-ink-100 bg-white transition-shadow hover:shadow-xl hover:shadow-ink-950/5 dark:border-ink-800 dark:bg-ink-900">
       <div
         className="relative flex h-48 items-center justify-center overflow-hidden"
@@ -43,5 +44,6 @@ export function ProjectCard({ project }: { project: Project }) {
         </div>
       </div>
     </div>
+    </a>
   );
 }
