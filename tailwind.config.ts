@@ -1,46 +1,63 @@
 import type { Config } from "tailwindcss";
 
 const config: Config = {
+  darkMode: "class",
   content: [
     "./app/**/*.{ts,tsx}",
     "./components/**/*.{ts,tsx}",
+    "./context/**/*.{ts,tsx}",
   ],
   theme: {
     extend: {
       colors: {
-        ink: "#0a0c16",
-        panel: "#131628",
-        panel2: "#1a1e36",
-        panel3: "#1f2440",
-        line: "rgba(255,255,255,.09)",
-        lineSoft: "rgba(255,255,255,.05)",
-        amber: "#ffb454",
-        mint: "#6ee7b7",
-        violet: "#b794f6",
-        rose: "#ff8a9b",
-        text: "#eef1fa",
-        textDim: "#9aa1c0",
-        textFaint: "#5c6284",
+        ink: {
+          DEFAULT: "#0A0A0B",
+          50: "#F7F7F8",
+          100: "#EDEDEF",
+          200: "#D7D7DC",
+          300: "#B4B4BD",
+          400: "#8B8B96",
+          500: "#68686F",
+          600: "#4A4A50",
+          700: "#333338",
+          800: "#1D1D20",
+          900: "#0F0F11",
+          950: "#0A0A0B",
+        },
+        blue: {
+          period: "#1B4B8F",
+          light: "#2F6FED",
+          pale: "#EAF1FF",
+        },
+        clay: "#C97B4A",
       },
       fontFamily: {
-        sans: ["var(--font-vazirmatn)", "sans-serif"],
-        mono: ["var(--font-jetbrains)", "monospace"],
+        display: ["var(--font-display)", "sans-serif"],
+        body: ["var(--font-display)", "sans-serif"],
+        accent: ["var(--font-body-latin)", "sans-serif"],
+        mono: ["var(--font-mono)", "monospace"],
       },
-      borderRadius: {
-        lg2: "20px",
-        md2: "14px",
-        sm2: "9px",
+      backgroundImage: {
+        "cubist-grid":
+          "linear-gradient(135deg, rgba(47,111,237,0.08) 25%, transparent 25%), linear-gradient(225deg, rgba(47,111,237,0.08) 25%, transparent 25%)",
       },
       keyframes: {
-        blink: { "50%": { opacity: "0" } },
-        termIn: { to: { opacity: "1" } },
+        "fade-up": {
+          "0%": { opacity: "0", transform: "translateY(16px)" },
+          "100%": { opacity: "1", transform: "translateY(0)" },
+        },
+        shard: {
+          "0%": { opacity: "0", transform: "scale(0.9) rotate(-4deg)" },
+          "100%": { opacity: "1", transform: "scale(1) rotate(0deg)" },
+        },
       },
       animation: {
-        blink: "blink 1s steps(1) infinite",
-        termIn: "termIn .45s ease forwards",
+        "fade-up": "fade-up 0.7s cubic-bezier(0.16,1,0.3,1) both",
+        shard: "shard 0.8s cubic-bezier(0.16,1,0.3,1) both",
       },
     },
   },
   plugins: [],
 };
+
 export default config;
