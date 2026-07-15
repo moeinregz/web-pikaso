@@ -2,12 +2,12 @@
 
 import { Project } from "@/types";
 import { useLanguage } from "@/context/LanguageContext";
+import { ExternalLink } from "lucide-react";
 
 export function ProjectCard({ project }: { project: Project }) {
   const { locale } = useLanguage();
 
   return (
-    <a href={project.href}>
     <div className="group overflow-hidden rounded-2xl border border-ink-100 bg-white transition-shadow hover:shadow-xl hover:shadow-ink-950/5 dark:border-ink-800 dark:bg-ink-900">
       <div
         className="relative flex h-48 items-center justify-center overflow-hidden"
@@ -42,8 +42,20 @@ export function ProjectCard({ project }: { project: Project }) {
             </span>
           ))}
         </div>
+        <div className="mt-6 border-t border-ink-200 pt-4 dark:border-ink-700">
+  <a
+    href={project.href}
+    target="_blank"
+    className="flex items-center justify-between rounded-xl bg-ink-100 px-4 py-3 transition-all hover:bg-blue-light hover:text-white dark:bg-ink-800"
+  >
+    <span className="font-medium">
+      {locale === "fa" ? "مشاهده سایت" : "Visit Website"}
+    </span>
+
+    <ExternalLink size={18} />
+  </a>
+</div>
       </div>
     </div>
-    </a>
   );
 }
