@@ -26,8 +26,8 @@ const PROJECTS = [
     descEn: "Online store for mushroom cultivation gear with a smooth UX",
   },
   {
-    url: "#",
-    domain: "https://style-pikaso.vercel.app/",
+    url: "https://style-pikaso.vercel.app/",
+    domain: "style-pikaso.vercel.app/",
     initials: "SP",
     gradient: "from-[#241230] to-[#301640]",
     titleFa: "StylePikaso — فروشگاه پوشاک",
