@@ -311,4 +311,4 @@ export const dictionaries = {
   },
 } as const;
 
-export type Dictionary = typeof dictionaries.fa;
+export type Dictionary = (typeof dictionaries)[keyof typeof dictionaries];
